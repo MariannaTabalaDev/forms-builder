@@ -7,7 +7,7 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
   styleUrls: ['./styling-choise.component.scss']
 })
 export class StylingChoiseComponent implements OnInit {
-    items = ['Form genered styling', 'Field styling'];
+    items = ['Form general styling', 'Field styling'];
     expandedIndex = 0;
 
   constructor() { }
