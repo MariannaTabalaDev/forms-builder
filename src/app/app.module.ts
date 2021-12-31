@@ -9,8 +9,11 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
 import { DraggableFieldsComponent } from './draggable-fields/draggable-fields.component';
-import {MatInputModule} from '@angular/material/input';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { MatInputModule} from '@angular/material/input';
+import { DragDropModule} from '@angular/cdk/drag-drop';
+import { MatExpansionModule } from '@angular/material/expansion';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { DragDropComponent } from './drag-drop/drag-drop.component';
 
 
 
@@ -20,6 +23,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     StylingChoiseComponent,
     FormBuilderComponent,
     DraggableFieldsComponent,
+    DragDropComponent,
 
     
   ],
@@ -30,7 +34,9 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     CdkAccordionModule,
     MatSliderModule,
     MatInputModule,
-    DragDropModule
+    DragDropModule,
+    MatExpansionModule,
+    ReactiveFormsModule
   ],
   providers: [
     // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
