@@ -7,13 +7,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StylingChoiseComponent } from './styling-choise/styling-choise.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatSliderModule } from '@angular/material/slider';
-import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { DraggableFieldsComponent } from './draggable-fields/draggable-fields.component';
 import { MatInputModule} from '@angular/material/input';
 import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { PortalModule } from '@angular/cdk/portal';
 
 
 
@@ -21,9 +20,8 @@ import { DragDropComponent } from './drag-drop/drag-drop.component';
   declarations: [
     AppComponent,
     StylingChoiseComponent,
-    FormBuilderComponent,
-    DraggableFieldsComponent,
     DragDropComponent,
+
 
     
   ],
@@ -36,7 +34,8 @@ import { DragDropComponent } from './drag-drop/drag-drop.component';
     MatInputModule,
     DragDropModule,
     MatExpansionModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PortalModule
   ],
   providers: [
     // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
