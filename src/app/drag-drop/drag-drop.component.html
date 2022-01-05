@@ -1,8 +1,8 @@
 <div class="example-container">
 
-    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="builder-box" *ngFor="let item of done" cdkDrag>
+    <div cdkDropList #fieldsInFormList="cdkDropList" [cdkDropListData]="fieldsInForm"
+        [cdkDropListConnectedTo]="[dragElementsList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="builder-box" *ngFor="let item of fieldsInForm" cdkDrag>
             <div *ngIf="item === 'text'"><input type="text" size="30" /></div>
             <div *ngIf="item === 'textarea'"><input type="textarea" rows="30" cols="40" /></div>
             <div *ngIf="item === 'button'"><button>Button</button></div>
@@ -19,9 +19,9 @@
 
 <div class="example-container">
 
-    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of todo" cdkDrag>
+    <div cdkDropList #dragElementsList="cdkDropList" [cdkDropListData]="dragElements"
+        [cdkDropListConnectedTo]="[fieldsInFormList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of dragElements" cdkDrag>
             <div *ngIf="item === 'text'"><input type="text" size="30" /> Input type text</div>
             <div *ngIf="item === 'textarea'"><input type="textarea" rows="30" cols="40" /> Textarea</div>
             <div *ngIf="item === 'button'"><button>Button</button></div>
@@ -33,7 +33,5 @@
             </div>
             <div *ngIf="item === 'checkbox'"><input type="checkbox" />Checkbox</div>
         </div>
-
     </div>
-
 </div>

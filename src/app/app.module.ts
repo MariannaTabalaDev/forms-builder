@@ -12,7 +12,7 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
-import { PortalModule } from '@angular/cdk/portal';
+
 
 
 
@@ -22,8 +22,6 @@ import { PortalModule } from '@angular/cdk/portal';
     StylingChoiseComponent,
     DragDropComponent,
 
-
-    
   ],
   imports: [
     BrowserModule,
@@ -35,10 +33,10 @@ import { PortalModule } from '@angular/cdk/portal';
     DragDropModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    PortalModule
   ],
   providers: [
     // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+
     ],
   bootstrap: [AppComponent]
 })
