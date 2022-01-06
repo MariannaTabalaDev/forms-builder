@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DragService } from '../shared/drag.service';
 
 @Component({
   selector: 'app-styling-choise',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class StylingChoiseComponent implements OnInit {
     panelOpenState = false;
 
-  constructor() { }
+  constructor(public dragService: DragService) { }
 
   ngOnInit(): void {
   }

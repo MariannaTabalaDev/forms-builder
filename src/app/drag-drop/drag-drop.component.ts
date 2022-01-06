@@ -2,7 +2,9 @@ import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { transferArrayItem, copyArrayItem } from '@angular/cdk/drag-drop';
 import { moveItemInArray } from '@angular/cdk/drag-drop';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { DragService } from '../shared/drag.service';
+import { DragService, ElemHasType } from '../shared/drag.service';
+
+
 
 
 @Component({
@@ -14,16 +16,19 @@ import { DragService } from '../shared/drag.service';
 
 export class DragDropComponent implements OnInit {
 
-    dragElements: string[];
+    constructor(public dragService: DragService) { }
+    
+     dragElements: ElemHasType[];
 
-    // fieldsInForm: string[];
-  
-    fieldsInForm = [''];
-    drop(event: CdkDragDrop<string[]>) {
+    fieldsInForm: ElemHasType[];
+ // fieldsInForm = [''];
+
+ // drop(event: CdkDragDrop<string[]>) {
+    drop(event: CdkDragDrop<ElemHasType[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-        } else if 
-            (event.previousContainer.id === 'cdk-drop-list-0'){
+        } else if
+            (event.previousContainer.id === 'cdk-drop-list-0') {
             transferArrayItem(
                 event.previousContainer.data, [],
                 event.previousIndex,
@@ -39,11 +44,12 @@ export class DragDropComponent implements OnInit {
             );
         }
     }
-    constructor(public dragService: DragService) { }
+
 
     ngOnInit(): void {
         this.dragElements = this.dragService.getData()
-        // this.fieldsInForm = this.dragService.getData()
+        this.fieldsInForm = this.dragService.getFieldsInForm()
+
     }
 
 }

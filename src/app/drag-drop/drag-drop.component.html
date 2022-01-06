@@ -3,15 +3,15 @@
     <div cdkDropList #fieldsInFormList="cdkDropList" [cdkDropListData]="fieldsInForm"
         [cdkDropListConnectedTo]="[dragElementsList]" class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="builder-box" *ngFor="let item of fieldsInForm" cdkDrag>
-            <div *ngIf="item === 'text'"><input type="text" size="30" /></div>
-            <div *ngIf="item === 'textarea'"><input type="textarea" rows="30" cols="40" /></div>
-            <div *ngIf="item === 'button'"><button>Button</button></div>
-            <div *ngIf="item === 'checkbox'"><input type="checkbox" /></div>
-            <div *ngIf="item === 'select'"><select class="select-css" name="select">
+            <div *ngIf="item.elemType === 'text'"><input type="text" size="30" /></div>
+            <div *ngIf="item.elemType === 'textarea'"><input type="textarea" rows="30" cols="40" /></div>
+            <!-- <div *ngIf="item.elemType === 'button'"><button>Button</button></div>
+            <div *ngIf="item.elemType === 'checkbox'"><input type="checkbox" /></div>
+            <div *ngIf="item.elemType === 'select'"><select class="select-css" name="select">
                     <option value="value1" selected>Value 1</option>
                     <option value="value2">Value 2</option>
                     <option value="value3">Value 3</option>
-                </select></div>
+                </select></div> -->
         </div>
 
     </div>
@@ -22,16 +22,16 @@
     <div cdkDropList #dragElementsList="cdkDropList" [cdkDropListData]="dragElements"
         [cdkDropListConnectedTo]="[fieldsInFormList]" class="example-list" (cdkDropListDropped)="drop($event)">
         <div class="example-box" *ngFor="let item of dragElements" cdkDrag>
-            <div *ngIf="item === 'text'"><input type="text" size="30" /> Input type text</div>
-            <div *ngIf="item === 'textarea'"><input type="textarea" rows="30" cols="40" /> Textarea</div>
-            <div *ngIf="item === 'button'"><button>Button</button></div>
-            <div *ngIf="item === 'select'"><select class="select-css" name="select">
+            <div *ngIf="item.elemType === 'text'"><input type="text" size="30" /> Input type text</div>
+            <div *ngIf="item.elemType === 'textarea'"><input type="textarea" rows="30" cols="40" /> Textarea</div>
+            <!-- <div *ngIf="item.elemType === 'button'"><button>Button</button></div>
+            <div *ngIf="item.elemType === 'select'"><select class="select-css" name="select">
                     <option value="value1" selected>Value 1</option>
                     <option value="value2">Value 2</option>
                     <option value="value3">Value 3</option>
                 </select>
             </div>
-            <div *ngIf="item === 'checkbox'"><input type="checkbox" />Checkbox</div>
+            <div *ngIf="item.elemType === 'checkbox'"><input type="checkbox" />Checkbox</div> -->
         </div>
     </div>
 </div>
