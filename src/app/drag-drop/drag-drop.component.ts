@@ -21,10 +21,8 @@ export class DragDropComponent implements OnInit {
      dragElements: ElemHasType[];
 
     fieldsInForm: ElemHasType[];
- // fieldsInForm = [''];
 
- // drop(event: CdkDragDrop<string[]>) {
-    drop(event: CdkDragDrop<ElemHasType[]>) {
+     drop(event: CdkDragDrop<ElemHasType[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else if
@@ -51,5 +49,12 @@ export class DragDropComponent implements OnInit {
         this.fieldsInForm = this.dragService.getFieldsInForm()
 
     }
+
+    
+    
+
+    onClick(i:number) {
+        console.log(i)
+    } 
 
 }

@@ -1,21 +1,29 @@
 
 import { Injectable } from '@angular/core';
 
-
+type Styles = {
+    [key: string]: string;
+}
 
 export interface ElemHasType {
     elemType: string,
+    styles: Styles,
 }
 
 
 class TextareaElem implements ElemHasType {
 
     public elemType: string;
-    public height: number;
+    public styles: Styles = {};
 
     constructor() {
         this.elemType = 'textarea';
-        this.height = 14;
+        this.styles.color = 'red';
+        this.styles.backgroundColor = 'pink';
+        this.styles.height = '100px';
+        this.styles.width = '200px';
+        this.styles.backgroundColor = 'pink';
+
     }
 };
 
@@ -23,11 +31,44 @@ class TextareaElem implements ElemHasType {
 class TextElem implements ElemHasType {
 
     public elemType: string;
-    public placeholder: string;
+    public styles: Styles = {};
 
     constructor() {
         this.elemType = 'text';
-        this.placeholder = '';
+    }
+
+};
+
+class ButtonElem implements ElemHasType {
+
+    public elemType: string;
+    public styles: Styles = {};
+
+    constructor() {
+        this.elemType = 'button';
+    }
+
+};
+
+class SelectElem implements ElemHasType {
+
+    public elemType: string;
+    public styles: Styles = {};
+
+    constructor() {
+        this.elemType = 'select';
+    
+    }
+
+};
+class CheckboxElem implements ElemHasType {
+
+    public elemType: string;
+    public styles: Styles = {};
+
+    constructor() {
+        this.elemType = 'checkbox';
+        
     }
 
 };
@@ -36,8 +77,8 @@ class TextElem implements ElemHasType {
 @Injectable({ providedIn: 'root' })
 export class DragService {
 
-    // public dragElements: string[] = ['textarea', 'text', 'button', 'select', 'checkbox'];
-    public dragElements: ElemHasType[] = [new TextareaElem, new TextElem];
+    public dragElements: ElemHasType[] = [new TextareaElem, new TextElem, new ButtonElem, new SelectElem, new CheckboxElem];
+   
 
     public fieldsInForm: ElemHasType[] = [];
 
@@ -51,4 +92,5 @@ export class DragService {
 
         return this.fieldsInForm;
     }
+
 }
