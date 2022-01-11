@@ -18,6 +18,10 @@ import { TextElemComponent } from './text-elem/text-elem.component';
 import { ButtonElemComponent } from './button-elem/button-elem.component';
 import { SelectElemComponent } from './select-elem/select-elem.component';
 import { CheckboxElemComponent } from './checkbox-elem/checkbox-elem.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { reducers, metaReducers } from './reducers';
 
 
 
@@ -44,7 +48,11 @@ import { CheckboxElemComponent } from './checkbox-elem/checkbox-elem.component';
     DragDropModule,
     MatExpansionModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
   ],
   providers: [
     // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
