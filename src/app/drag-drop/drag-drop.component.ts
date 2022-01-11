@@ -17,12 +17,12 @@ import { DragService, ElemHasType } from '../shared/drag.service';
 export class DragDropComponent implements OnInit {
 
     constructor(public dragService: DragService) { }
-    
-     dragElements: ElemHasType[];
+
+    dragElements: ElemHasType[];
 
     fieldsInForm: ElemHasType[];
 
-     drop(event: CdkDragDrop<ElemHasType[]>) {
+    drop(event: CdkDragDrop<ElemHasType[]>) {
         if (event.previousContainer === event.container) {
             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else if
@@ -50,11 +50,11 @@ export class DragDropComponent implements OnInit {
 
     }
 
-    
-    
 
-    onClick(i:number) {
+
+
+    onClick(i: number) {
         console.log(i)
-    } 
+    }
 
 }

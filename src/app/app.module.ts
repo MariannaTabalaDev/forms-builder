@@ -12,6 +12,12 @@ import { DragDropModule} from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { DragDropComponent } from './drag-drop/drag-drop.component';
+import { StoreModule } from '@ngrx/store';
+import { TextareaElemComponent } from './textarea-elem/textarea-elem.component';
+import { TextElemComponent } from './text-elem/text-elem.component';
+import { ButtonElemComponent } from './button-elem/button-elem.component';
+import { SelectElemComponent } from './select-elem/select-elem.component';
+import { CheckboxElemComponent } from './checkbox-elem/checkbox-elem.component';
 
 
 
@@ -21,6 +27,11 @@ import { DragDropComponent } from './drag-drop/drag-drop.component';
     AppComponent,
     StylingChoiseComponent,
     DragDropComponent,
+    TextareaElemComponent,
+    TextElemComponent,
+    ButtonElemComponent,
+    SelectElemComponent,
+    CheckboxElemComponent,
 
   ],
   imports: [
@@ -33,6 +44,7 @@ import { DragDropComponent } from './drag-drop/drag-drop.component';
     DragDropModule,
     MatExpansionModule,
     ReactiveFormsModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
