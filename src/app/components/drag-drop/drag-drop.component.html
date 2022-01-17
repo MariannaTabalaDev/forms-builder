@@ -1,0 +1,48 @@
+<div class="example-container">
+
+    <div cdkDropList #fieldsInFormList="cdkDropList" [cdkDropListData]="fieldsInForm"
+        [cdkDropListConnectedTo]="[dragElementsList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="builder-box" *ngFor="let item of fieldsInForm; index as i" cdkDrag>
+            
+            <div *ngIf="item.elemType === 'textarea'" (click)="onClick(i)">
+                <app-textarea-elem></app-textarea-elem>
+            </div>
+            
+            <div *ngIf="item.elemType === 'text'">
+                <app-text-elem></app-text-elem>
+            </div>
+            
+            <div *ngIf="item.elemType === 'button'">
+                <app-button-elem></app-button-elem>
+            </div>
+
+            <div *ngIf="item.elemType === 'select'">
+                <app-select-elem></app-select-elem>
+                
+            </div>
+            <div *ngIf="item.elemType === 'checkbox'">
+                <app-checkbox-elem>I agree</app-checkbox-elem>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="example-container">
+
+    <div cdkDropList #dragElementsList="cdkDropList" [cdkDropListData]="dragElements"
+        [cdkDropListConnectedTo]="[fieldsInFormList]" class="example-list" (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of dragElements" cdkDrag>
+            <div *ngIf="item.elemType === 'textarea'"><input type="textarea" /> Textarea</div>
+            <div *ngIf="item.elemType === 'text'"><input type="text" size="30" /> Input type text</div>
+            <div *ngIf="item.elemType === 'button'"><button>Button</button></div>
+            <div *ngIf="item.elemType === 'select'"><select class="select-css" name="select">
+                    <option value="value1" selected>Value 1</option>
+                    <option value="value2">Value 2</option>
+                    <option value="value3">Value 3</option>
+                </select>
+            </div>
+            <div *ngIf="item.elemType === 'checkbox'"><input type="checkbox" />Checkbox</div>
+        </div>
+    </div>
+</div>
