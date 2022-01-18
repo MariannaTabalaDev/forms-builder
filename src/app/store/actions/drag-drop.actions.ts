@@ -8,7 +8,7 @@ import { ElemHasType } from '../drag-drop.interfaces';
 
 
 export const addDragElem = createAction(
-    '[FIELD] addDragElem',
+    '[FIELD] addElem',
     props< ElemHasType >()
 );
 
