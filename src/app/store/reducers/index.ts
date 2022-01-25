@@ -1,26 +1,20 @@
-import {
-    ActionReducerMap,
-    MetaReducer
-} from '@ngrx/store';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
-import { initialDragDropState, dragDropReducer } from './drag-drop.reducers';
-import { IDragDrop } from '../drag-drop.interfaces';
+import { IAppState } from '../drag-drop.interfaces';
+import { fieldsInFormReducer } from './drag-drop.reducers';
 
-export interface IAppState {
-    dragDrop: IDragDrop,
-}
 
 export const initialAppState = {
-    dragDrop: initialDragDropState,
-} 
-
-export function getInitialState(){
-    return initialAppState;
+  
 }
 
 export const appReducers: ActionReducerMap<IAppState, any> = {
-    dragDrop: dragDropReducer,
+    fieldsInForm: fieldsInFormReducer
 };
 
+
+// export function getInitialState() {
+//    return initialAppState; 
+// }
 
 export const metaReducers: MetaReducer<IAppState>[] = !environment.production ? [] : [];

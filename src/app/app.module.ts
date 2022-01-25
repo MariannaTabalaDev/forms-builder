@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StylingChoiseComponent } from './components/styling-choise/styling-choise.component';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { MatSliderModule } from '@angular/material/slider';
-import { MatInputModule } from '@angular/material/input';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+import { MatSliderModule } from '@angular/material/slider';
+
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 import { ReactiveFormsModule } from '@angular/forms';
 import { DragDropComponent } from './components/drag-drop/drag-drop.component';
 import { StoreModule } from '@ngrx/store';
@@ -24,9 +27,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { appReducers, metaReducers } from '../app/store/reducers';
 
 
-
-
-
 @NgModule({
     declarations: [
         AppComponent,
@@ -37,24 +37,22 @@ import { appReducers, metaReducers } from '../app/store/reducers';
         ButtonElemComponent,
         SelectElemComponent,
         CheckboxElemComponent,
-
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        MatExpansionModule,
         CdkAccordionModule,
         MatSliderModule,
         MatInputModule,
         DragDropModule,
-        MatExpansionModule,
         ReactiveFormsModule,
         StoreModule.forRoot(appReducers, {
             metaReducers
         }),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         EffectsModule.forRoot([]),
-
     ],
     providers: [
         // {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}

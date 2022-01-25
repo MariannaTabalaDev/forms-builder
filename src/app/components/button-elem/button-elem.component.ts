@@ -7,11 +7,21 @@ import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
     styleUrls: ['./button-elem.component.scss']
 })
 export class ButtonElemComponent implements OnInit, ElemHasType {
+    
+    isActive: boolean = false;
     elemType: string;
     styles: { [key: string]: string; };
+
     constructor() {
         this.elemType = 'button';
+        this.styles = {};
+        // this.styles.border = '1px solid red';
+        this.styles.backgroundColor = 'green';
+        this.styles.border = 'none';
+        this.styles.color = 'white';
+        this.styles.fontSize = '16px';
     }
+    onClick(): void {}
 
     ngOnInit(): void {
     }

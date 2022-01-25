@@ -1,19 +1,21 @@
-import { createReducer, on } from '@ngrx/store';
+
 import * as dragDropActions from '../actions/drag-drop.actions';
-import { IDragDrop } from '../drag-drop.interfaces';
+import { ElemHasType } from '../drag-drop.interfaces';
+import { createReducer, on } from '@ngrx/store';
 
+export const initialStateFieldsInForm: ElemHasType[] = [];
 
-export const initialDragDropState: IDragDrop = {
-    elements: [{elemType: "open" }], 
-}
+export const fieldsInFormReducer = createReducer(
 
-export const dragDropReducer = createReducer(
-    initialDragDropState,
-    on(
-        dragDropActions.addDragElem, 
-        (state, payload) => ({
-            ...state,
-            elements: [...state.elements, payload]
-        }),
+    initialStateFieldsInForm,
+
+    on(dragDropActions.fieldsInFormToStoreAction,
+        (state, payload) => {
+    
+            return [...payload.elements]
+        }
     )
+
 );
+
+

@@ -3,12 +3,14 @@ import { ElemHasType } from '../drag-drop.interfaces';
 
 
 
-// export const dragElements = createAction('[FIELD] dragElements');
-// export const fieldsInForm = createAction('[FIELD] fieldsInForm');
+export const fieldsInFormToStoreAction = createAction(
+    '[DROP_SECTION] {fieldsInFormToStore}',
+    props< { elements: ElemHasType[] } >()
+);
 
-
-export const addDragElem = createAction(
-    '[FIELD] addElem',
+export const stylesToEditAction = createAction(
+    '[DROP_SECTION] {stylesToEditAction}',
     props< ElemHasType >()
 );
+
 
