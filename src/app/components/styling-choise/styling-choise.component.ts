@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { settingStylesToElementAction } from 'src/app/store/actions/drag-drop.actions';
 import { Styles } from 'src/app/store/drag-drop.interfaces';
 import { Selectors } from 'src/app/store/selectors/drag-drop.selectors';
 
@@ -14,10 +15,9 @@ export class StylingChoiseComponent implements OnInit {
     currElemStyles$ = this.store.select(Selectors.currElemStylesSelector);
     panelIsOpened$ = this.store.select(Selectors.panelIsOpenedSelector);
 
-
-
     styles: Styles = {};
     openListStyle = false;
+
 
     constructor(private store: Store) { }
 
@@ -25,11 +25,14 @@ export class StylingChoiseComponent implements OnInit {
         this.currElemStyles$.subscribe(stylesElemFromStore => {
 
             this.styles = { ...stylesElemFromStore };
+            // console.log("this styles", this.styles)
         });
         this.panelIsOpened$.subscribe(param => {
-          
+
             this.openListStyle = param;
         })
     }
-
+    onClick(){
+        this.store.dispatch(settingStylesToElementAction( this.styles ));
+    }
 }

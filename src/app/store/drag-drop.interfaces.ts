@@ -8,11 +8,6 @@ export interface ElemHasType {
     isActive: boolean
 }
 
-// export interface IDragDrop {
-//     elements: ElemHasType[]
-//     styles?: Styles,
-// }
-
 export interface IAppState {
     fieldsInForm: ElemHasType[]
 }

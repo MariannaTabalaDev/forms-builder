@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ElemHasType } from '../drag-drop.interfaces';
+import { ElemHasType, Styles } from '../drag-drop.interfaces';
 
 
 
@@ -8,9 +8,8 @@ export const fieldsInFormToStoreAction = createAction(
     props< { elements: ElemHasType[] } >()
 );
 
-export const stylesToEditAction = createAction(
-    '[DROP_SECTION] {stylesToEditAction}',
-    props< ElemHasType >()
-);
 
-
+export const settingStylesToElementAction = createAction(
+    '[STYLE_SECTION] {settingStylesToElement}',
+    props< Styles >()
+) 

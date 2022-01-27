@@ -12,10 +12,11 @@ export class TextareaElemComponent implements OnInit, ElemHasType {
     elemType: string;
     styles: { [key: string]: string; };
 
-    // constructor( private store: Store ) {
+    
     constructor() {
         this.elemType = 'textarea';
         this.styles = {};
+        this.styles.text = '';
         this.styles.color = 'red';
         this.styles.backgroundColor = 'beige';
         this.styles.height = '100px';
@@ -25,6 +26,5 @@ export class TextareaElemComponent implements OnInit, ElemHasType {
 
     onClick(): void {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 }

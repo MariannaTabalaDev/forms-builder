@@ -18,7 +18,7 @@ export namespace Selectors {
             if (found === undefined) {
                 return {};
             }
-            console.log("it's found styles", found.styles)
+            // console.log("it's found styles", found.styles)
             return found.styles;
         }
     );
@@ -35,4 +35,5 @@ export namespace Selectors {
             return true;
         }
     );
+    
 }

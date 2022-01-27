@@ -15,7 +15,6 @@ export class ButtonElemComponent implements OnInit, ElemHasType {
     constructor() {
         this.elemType = 'button';
         this.styles = {};
-        // this.styles.border = '1px solid red';
         this.styles.backgroundColor = 'green';
         this.styles.border = 'none';
         this.styles.color = 'white';

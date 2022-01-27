@@ -16,7 +16,8 @@ export class TextElemComponent implements OnInit, ElemHasType {
     
     constructor() {
         this.elemType = 'text';
-        this.styles = {}
+        this.styles = {};
+        this.styles.text = '';
         this.styles.color = 'black';
         this.styles.backgroundColor = 'beige';
         this.styles.height = '15px';

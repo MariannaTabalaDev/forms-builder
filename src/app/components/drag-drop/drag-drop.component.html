@@ -4,7 +4,6 @@
         [cdkDropListConnectedTo]="[dragElementsList]" class="example-list" (cdkDropListDropped)="drop($event)">
         
         <div class="builder-box" *ngFor="let item of fieldsInForm; index as i" cdkDrag>
-        <!-- <div class="builder-box" *ngFor="let item of ( fieldsInFormUpdated$ | async ); index as i" cdkDrag> -->
 
             <div *ngIf="item.elemType === 'textarea'" (click)="onClick(i)">
                 <app-textarea-elem></app-textarea-elem>
