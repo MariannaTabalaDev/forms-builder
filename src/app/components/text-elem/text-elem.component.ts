@@ -12,12 +12,10 @@ export class TextElemComponent implements OnInit, ElemHasType {
     isActive: boolean = false;
     elemType: string;
     styles: { [key: string]: string; };
-    // public styles: Styles = {};
     
     constructor() {
         this.elemType = 'text';
         this.styles = {};
-        this.styles.text = '';
         this.styles.color = 'black';
         this.styles.backgroundColor = 'beige';
         this.styles.height = '15px';

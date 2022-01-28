@@ -13,7 +13,6 @@ export class CheckboxElemComponent implements OnInit, ElemHasType {
     constructor() {
         this.elemType = 'checkbox';
         this.styles = {};
-        this.styles.color = 'red';
         this.styles.width = '20px';
         this.styles.height = '20px';
     }

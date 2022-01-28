@@ -1,6 +1,6 @@
 
 import * as dragDropActions from '../actions/drag-drop.actions';
-import { ElemHasType, Styles } from '../drag-drop.interfaces';
+import { ElemHasType } from '../drag-drop.interfaces';
 import { createReducer, on } from '@ngrx/store';
 
 
@@ -16,12 +16,16 @@ export const fieldsInFormReducer = createReducer(
             return [...payload.elements]
         }
     ),
+    
     on(dragDropActions.settingStylesToElementAction,
         (state, payload) => {
+            // return {...state, payload}
+
             const fieldsInFormNew = state.map(item => {
                 return { ...item, styles: item.isActive ? {...payload} : {...item.styles} }
             });
-            return [ ...fieldsInFormNew ]
+            
+            return [...fieldsInFormNew]
         }
     )
 );

@@ -67,7 +67,9 @@ export class DragDropComponent implements OnInit {
 
     ngOnInit(): void {
         this.fieldsInFormUpdated$.subscribe(state => {
+            
             this.fieldsInForm = [...state];
+
         });
     }
 
@@ -77,9 +79,8 @@ export class DragDropComponent implements OnInit {
             return { ...val, isActive: index === i ? true : false }
 
         });
-
+        
         this.store.dispatch(fieldsInFormToStoreAction({ elements: fieldsInForm1 }));
 
     }
-
 }

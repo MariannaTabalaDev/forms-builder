@@ -15,7 +15,7 @@ export class ButtonElemComponent implements OnInit, ElemHasType {
     constructor() {
         this.elemType = 'button';
         this.styles = {};
-        this.styles.backgroundColor = 'green';
+        this.styles.backgroundColor = 'olive';
         this.styles.border = 'none';
         this.styles.color = 'white';
         this.styles.fontSize = '16px';
@@ -24,5 +24,4 @@ export class ButtonElemComponent implements OnInit, ElemHasType {
 
     ngOnInit(): void {
     }
-
 }

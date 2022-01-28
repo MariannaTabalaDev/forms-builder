@@ -21,8 +21,6 @@
 
         </mat-expansion-panel>
 
-
-
         <mat-expansion-panel [expanded]="openListStyle" (opened)="panelOpenState = true"
             (closed)="panelOpenState = false">
 
@@ -32,9 +30,24 @@
                 </mat-panel-title>
             </mat-expansion-panel-header>
             <hr>
-            <div *ngFor="let item of styles | keyvalue">
-                {{item.key}}: <input type="text" value="{{item.value}}">
-            </div>
+            <!-- <form [formGroup]="myForm">
+                <input type="text" formControlName="color" >
+                <input type="text" formControlName="backgroundColor" >
+                <input type="text" formControlName="placeholderText" >
+                <input type="text" formControlName="width" >
+                <input type="text" formControlName="height" >
+                <input type="text" formControlName="required" >
+                <input type="text" formControlName="borderStyle" >
+                <input type="text" formControlName="fontSizeInput" >
+                <input type="text" formControlName="fontWeightSelect" >
+                <input type="text" formControlName="fontWeightSelect" >
+            </form> -->
+            <form [formGroup]="myFormForStyles" >
+                <div *ngFor="let item of styles | keyvalue">
+                    <!-- {{item.key}}: <input type="text" value="{{item.value}}"> -->
+                    <span> {{item.key}} </span><input type="text" formControlName={{item.key}} value="{{item.value}}">
+                </div>
+            </form>
             <hr>
             <button (click)="onClick()">Set styles</button>
         </mat-expansion-panel>

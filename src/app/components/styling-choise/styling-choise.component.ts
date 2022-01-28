@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormControlName } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { settingStylesToElementAction } from 'src/app/store/actions/drag-drop.actions';
 import { Styles } from 'src/app/store/drag-drop.interfaces';
 import { Selectors } from 'src/app/store/selectors/drag-drop.selectors';
+
+
 
 @Component({
     selector: 'app-styling-choise',
@@ -17,15 +20,27 @@ export class StylingChoiseComponent implements OnInit {
 
     styles: Styles = {};
     openListStyle = false;
+    myFormForStyles: FormGroup;
 
 
     constructor(private store: Store) { }
 
     ngOnInit(): void {
-        this.currElemStyles$.subscribe(stylesElemFromStore => {
 
+        this.myFormForStyles = new FormGroup({
+            "color": new FormControl(),
+            "backgroundColor": new FormControl(),
+            "width": new FormControl(),
+            "height": new FormControl(),
+            "required": new FormControl(),
+            "placeholderText": new FormControl(),
+            "border": new FormControl(),
+            "fontSize": new FormControl(),
+            "text": new FormControl()
+        });
+  
+        this.currElemStyles$.subscribe(stylesElemFromStore => {
             this.styles = { ...stylesElemFromStore };
-            // console.log("this styles", this.styles)
         });
         this.panelIsOpened$.subscribe(param => {
 
@@ -33,6 +48,9 @@ export class StylingChoiseComponent implements OnInit {
         })
     }
     onClick(){
-        this.store.dispatch(settingStylesToElementAction( this.styles ));
+        
+            this.store.dispatch(settingStylesToElementAction(this.myFormForStyles.value));
+            //    console.log("MYFORMForStyles", this.myFormForStyles.value)
+        // this.store.dispatch(settingStylesToElementAction( this.styles ));
     }
 }
