@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
 
 @Component({
@@ -10,7 +10,9 @@ export class ButtonElemComponent implements OnInit, ElemHasType {
     
     isActive: boolean = false;
     elemType: string;
-    styles: { [key: string]: string; };
+    id: number;
+
+    @Input() styles: { [key: string]: string; }
 
     constructor() {
         this.elemType = 'button';
@@ -19,9 +21,9 @@ export class ButtonElemComponent implements OnInit, ElemHasType {
         this.styles.border = 'none';
         this.styles.color = 'white';
         this.styles.fontSize = '16px';
+        // this.id = Date.now() as number;
     }
     onClick(): void {}
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 }

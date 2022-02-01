@@ -1,11 +1,14 @@
+
 export interface Styles {
-    [key: string]: string;
+    [key: string]: string
 }
+
 export interface ElemHasType {
     elemType?: string,
-    styles?: Styles,
+    styles: Styles,
     onClick(): void,
-    isActive: boolean
+    isActive: boolean,
+    id: number
 }
 
 export interface IAppState {

@@ -12,8 +12,7 @@ export const fieldsInFormReducer = createReducer(
 
     on(dragDropActions.fieldsInFormToStoreAction,
         (state, payload) => {
-
-            return [...payload.elements]
+            return [...state, ...payload.elements]
         }
     ),
     
@@ -22,7 +21,8 @@ export const fieldsInFormReducer = createReducer(
             // return {...state, payload}
 
             const fieldsInFormNew = state.map(item => {
-                return { ...item, styles: item.isActive ? {...payload} : {...item.styles} }
+                if(!item.isActive) return item;
+                return { ...item, styles: payload }
             });
             
             return [...fieldsInFormNew]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
 
 
@@ -11,7 +11,9 @@ export class TextElemComponent implements OnInit, ElemHasType {
 
     isActive: boolean = false;
     elemType: string;
-    styles: { [key: string]: string; };
+    id: number;
+
+    @Input() styles: { [key: string]: string; }
     
     constructor() {
         this.elemType = 'text';
@@ -20,7 +22,6 @@ export class TextElemComponent implements OnInit, ElemHasType {
         this.styles.backgroundColor = 'beige';
         this.styles.height = '15px';
         this.styles.width = '200px';
-
     }
     onClick: any;
 

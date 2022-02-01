@@ -22,9 +22,13 @@ import { Selectors } from 'src/app/store/selectors/drag-drop.selectors';
 
 export class DragDropComponent implements OnInit {
 
-    styles: Styles
+    styles: Styles;
+    id: number;
 
     fieldsInFormUpdated$ = this.store.select(Selectors.fieldsInFormSelector)
+    currElemStyle$ = this.store.select(Selectors.currElemStylesSelector)
+    currElemId$ = this.store.select(Selectors.currElemIdSelector)
+    
 
     constructor(private store: Store) { }
 
@@ -54,33 +58,42 @@ export class DragDropComponent implements OnInit {
             );
 
         }
-
-        this.store.dispatch(
-            fieldsInFormToStoreAction(
-                {
-                    elements: this.fieldsInForm
-                }
-            )
-        );
-
+        this.store.dispatch(fieldsInFormToStoreAction({elements: this.fieldsInForm}));
     }
 
     ngOnInit(): void {
         this.fieldsInFormUpdated$.subscribe(state => {
-            
             this.fieldsInForm = [...state];
-
         });
+
+        this.currElemStyle$.subscribe(styles => {
+            this.styles = styles
+        })
+        
+        // this.currElemId$.subscribe(id => {
+        //     console.log("THIS.ID", this.id)
+        //     this.id = Date.now() as number;
+        // })
     }
 
     onClick(i: number) {
 
         const fieldsInForm1 = this.fieldsInForm.map((val, index) => {
+            
             return { ...val, isActive: index === i ? true : false }
 
         });
-        
+
+        this.currElemId$.subscribe(id => {
+            console.log("THIS.ID", this.id)
+            this.id = Date.now() as number;
+        })
+
         this.store.dispatch(fieldsInFormToStoreAction({ elements: fieldsInForm1 }));
 
     }
+}
+
+function currElemStylesSelector(arg0: { elements: { isActive: boolean; elemType?: string | undefined; styles?: Styles | undefined; onClick(): void; }[]; }): (state: object) => unknown {
+    throw new Error('Function not implemented.');
 }

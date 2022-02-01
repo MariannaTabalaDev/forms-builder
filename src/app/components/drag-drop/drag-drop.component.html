@@ -6,19 +6,19 @@
         <div class="builder-box" *ngFor="let item of fieldsInForm; index as i" cdkDrag>
 
             <div *ngIf="item.elemType === 'textarea'" (click)="onClick(i)">
-                <app-textarea-elem></app-textarea-elem>
+                <app-textarea-elem [styles]="styles"></app-textarea-elem>
             </div>
             <div *ngIf="item.elemType === 'text'" (click)="onClick(i)">
-                <app-text-elem></app-text-elem>
+                <app-text-elem [styles]="styles"></app-text-elem>
             </div>
             <div *ngIf="item.elemType === 'button'" (click)="onClick(i)">
-                <app-button-elem></app-button-elem>
+                <app-button-elem [styles]="styles"></app-button-elem>
             </div>
             <div *ngIf="item.elemType === 'select'" (click)="onClick(i)">
-                <app-select-elem></app-select-elem>
+                <app-select-elem [styles]="styles"></app-select-elem>
             </div>
             <div *ngIf="item.elemType === 'checkbox'" (click)="onClick(i)">
-                <app-checkbox-elem>I agree</app-checkbox-elem>
+                <app-checkbox-elem [styles]="styles">I agree</app-checkbox-elem>
             </div>
 
         </div>

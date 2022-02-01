@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+// import { Store } from '@ngrx/store';
 import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
+import { Selectors } from 'src/app/store/selectors/drag-drop.selectors';
 
 @Component({
     selector: 'app-textarea-elem',
@@ -10,8 +12,9 @@ export class TextareaElemComponent implements OnInit, ElemHasType {
     
     isActive: boolean = false;
     elemType: string;
-    styles: { [key: string]: string; };
+    id: number;
 
+    @Input() styles: { [key: string]: string; }
     
     constructor() {
         this.elemType = 'textarea';
@@ -21,7 +24,6 @@ export class TextareaElemComponent implements OnInit, ElemHasType {
         this.styles.backgroundColor = 'beige';
         this.styles.height = '100px';
         this.styles.width = '150px';
-
     }
 
     onClick(): void {}

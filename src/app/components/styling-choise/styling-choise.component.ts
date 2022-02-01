@@ -6,7 +6,6 @@ import { Styles } from 'src/app/store/drag-drop.interfaces';
 import { Selectors } from 'src/app/store/selectors/drag-drop.selectors';
 
 
-
 @Component({
     selector: 'app-styling-choise',
     templateUrl: './styling-choise.component.html',
@@ -38,19 +37,23 @@ export class StylingChoiseComponent implements OnInit {
             "fontSize": new FormControl(),
             "text": new FormControl()
         });
-  
+
         this.currElemStyles$.subscribe(stylesElemFromStore => {
             this.styles = { ...stylesElemFromStore };
         });
-        this.panelIsOpened$.subscribe(param => {
 
+        this.panelIsOpened$.subscribe(param => {
             this.openListStyle = param;
         })
     }
-    onClick(){
-        
+    onClick() {
+
+        // if (this.currElemStyles$ === this.myFormForStyles.value) {
             this.store.dispatch(settingStylesToElementAction(this.myFormForStyles.value));
-            //    console.log("MYFORMForStyles", this.myFormForStyles.value)
-        // this.store.dispatch(settingStylesToElementAction( this.styles ));
+
+        // }
+
+        //    console.log("MY_FORM_FOR_Styles", this.myFormForStyles.value)
+        //    this.store.dispatch(settingStylesToElementAction( this.styles ));
     }
 }

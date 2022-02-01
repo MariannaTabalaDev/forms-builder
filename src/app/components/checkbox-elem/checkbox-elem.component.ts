@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
 
 @Component({
@@ -9,7 +9,10 @@ import { ElemHasType } from 'src/app/store/drag-drop.interfaces';
 export class CheckboxElemComponent implements OnInit, ElemHasType {
     isActive: boolean = false;
     elemType: string;
-    styles: { [key: string]: string; };
+    id: number;
+    
+    @Input()  styles: { [key: string]: string; };
+    
     constructor() {
         this.elemType = 'checkbox';
         this.styles = {};

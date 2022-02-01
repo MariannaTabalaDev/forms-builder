@@ -18,8 +18,21 @@ export namespace Selectors {
             if (found === undefined) {
                 return {};
             }
-            // console.log("it's found styles", found.styles)
             return found.styles;
+        }
+    );
+
+    export const currElemIdFeatureSelector = createFeatureSelector<ElemHasType[]>('fieldsInForm');
+    export const currElemIdSelector = createSelector(
+        currElemIdFeatureSelector,
+        state => {
+            const found: ElemHasType | undefined = state.find(item => item.isActive);
+
+            if (found === undefined) {
+                return -1;
+            }
+
+            return found.id;
         }
     );
 
@@ -35,5 +48,5 @@ export namespace Selectors {
             return true;
         }
     );
-    
+
 }
